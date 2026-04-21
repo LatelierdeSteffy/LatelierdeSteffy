@@ -1,6 +1,6 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <body>
-<h1>TESTOK</h1>
+<h1 style="color:red;">SITE OK</h1>
 </body>
 </html>
