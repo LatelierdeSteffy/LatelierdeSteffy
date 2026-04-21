@@ -1,119 +1,88 @@
  <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>L'Atelier de Steffy</title>
+<meta charset="UTF-8">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-image: url('fond.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('fond.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
 
-    .overlay {
-      background: rgba(0,0,0,0.6);
-      min-height: 100vh;
-      padding: 20px;
-    }
+/* BARRE MENU */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.7);
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+}
 
-    header {
-      text-align: center;
-      padding: 40px 20px;
-    }
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
 
-    h1 {
-      font-size: 50px;
-      margin: 0;
-      letter-spacing: 2px;
-    }
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+}
 
-    p.subtitle {
-      font-size: 18px;
-      opacity: 0.9;
-    }
+.nav-links a:hover {
+  color: #caa472;
+}
 
-    .btn {
-      background: #8B4513;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      margin-top: 15px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+/* CONTENU */
+.container {
+  text-align: center;
+  padding: 80px 20px;
+}
 
-    .btn:hover {
-      background: #A0522D;
-    }
+button {
+  background-color: #8B4513;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
-    .container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
+button:hover {
+  background-color: #A0522D;
+}
+</style>
 
-    .card {
-      background: rgba(0,0,0,0.7);
-      width: 280px;
-      margin: 15px;
-      padding: 15px;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-  </style>
 </head>
 
 <body>
 
-<div class="overlay">
+<!-- MENU -->
+<div class="navbar">
+  <div class="logo">🪵 L'Atelier de Steffy</div>
 
-  <header>
-    <h1>L'Atelier de Steffy</h1>
-    <p class="subtitle">Créations artisanales en bois personnalisées</p>
-    <button class="btn">Voir les créations</button>
-  </header>
-
-  <div class="container">
-
-    <div class="card">
-      <img src="produit1.jpg">
-      <h2>Plaque personnalisée</h2>
-      <p>Gravure prénom ou message</p>
-      <p><strong>25€</strong></p>
-      <button class="btn">Commander</button>
-    </div>
-
-    <div class="card">
-      <img src="produit2.jpg">
-      <h2>Décoration murale</h2>
-      <p>Design unique fait main</p>
-      <p><strong>40€</strong></p>
-      <button class="btn">Commander</button>
-    </div>
-
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="produits.html">Boutique</a>
+    <a href="personnalisation.html">Personnalisation</a>
+    <a href="contact.html">Contact</a>
   </div>
+</div>
 
-  <footer>
-    © 2026 L'Atelier de Steffy - Créations artisanales
-  </footer>
+<!-- CONTENU -->
+<div class="container">
+  <h1>Gravures artisanales sur bois</h1>
+  <p>Créations uniques et personnalisées</p>
 
+  <button>Voir la boutique</button>
 </div>
 
 </body>
