@@ -1,51 +1,168 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Gravures sur bois - Artisan</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravures sur bois artisanales</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8f6f3;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('image1.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 48px;
+    max-width: 600px;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* GALERIE */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 10px;
+}
+
+/* ABOUT */
+.about {
+    text-align: center;
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+}
+
+.btn {
+    background: #222;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* FOOTER */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+
 </head>
 <body>
 
 <header>
     <h1>Gravures sur bois</h1>
-    <p>Créations artisanales faites à la main</p>
+    <nav>
+        <a href="#gallery">Galerie</a>
+        <a href="#about">À propos</a>
+        <a href="#contact">Commander</a>
+    </nav>
 </header>
 
-<section class="hero">
-    <h2>Des œuvres uniques gravées avec passion</h2>
-</section>
+<div class="hero">
+    <h2>Des gravures uniques faites à la main</h2>
+</div>
 
-<section class="gallery">
+<section id="gallery">
     <h2>Mes créations</h2>
     <div class="grid">
-        <div class="item">
-            <img src="image1.jpg" alt="gravure bois">
+        <div class="card">
+            <img src="image1.jpg">
             <p>Gravure personnalisée - 25€</p>
         </div>
-        <div class="item">
-            <img src="image2.jpg" alt="gravure bois">
+        <div class="card">
+            <img src="image2.jpg">
             <p>Portrait gravé - 40€</p>
         </div>
     </div>
 </section>
 
-<section class="about">
-    <h2>À propos</h2>
+<section id="about" class="about">
+    <h2>Mon histoire</h2>
     <p>
-        Je réalise des gravures sur bois entièrement à la main. 
-        Chaque pièce est unique et réalisée avec soin.
+        Je crée des gravures sur bois entièrement à la main. 
+        Chaque pièce est unique et réalisée avec passion.
     </p>
 </section>
 
-<section class="contact">
-    <h2>Commander</h2>
-    <p>Contactez-moi pour une commande personnalisée :</p>
+<section id="contact" class="cta">
+    <h2>Commander une gravure</h2>
+    <p>Contactez-moi pour une création personnalisée</p>
     <a href="mailto:tonemail@example.com" class="btn">Me contacter</a>
 </section>
 
 <footer>
-    <p>© 2026 - Gravures artisanales</p>
+    <p>© 2026 - Artisan gravure sur bois</p>
 </footer>
 
 </body>
