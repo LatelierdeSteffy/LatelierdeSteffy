@@ -3,169 +3,496 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gravures sur bois artisanales</title>
-
+<title>L'Atelier de Steffy – Gravure Bois, Ardoise, Métal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bois: #6B4226;
+    --bois-clair: #C4945A;
+    --ardoise: #3A3D42;
+    --metal: #8A8F96;
+    --creme: #F7F1E8;
+    --blanc: #FDFAF5;
+    --text: #2A2118;
+    --text-muted: #7A6A58;
+    --accent: #B85C28;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Raleway', sans-serif; background: var(--blanc); color: var(--text); }
 
-    background: url('Images/Desert.jpg') no-repeat center center fixed;
-    background-size: cover;
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(253, 250, 245, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(107,66,38,0.15);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--bois); letter-spacing: 0.02em; }
+  .nav-logo span { font-style: italic; color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta { background: var(--bois); color: var(--creme); border: none; padding: 0.5rem 1.2rem; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; border-radius: 2px; }
+  .nav-cta:hover { background: var(--accent); }
 
-    color: #333;
-}
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2A1A0E 0%, #3D2612 40%, #4A3020 70%, #2E2420 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; text-align: center;
+    padding: 6rem 2rem 4rem;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(196,148,90,0.03) 60px, rgba(196,148,90,0.03) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(196,148,90,0.03) 60px, rgba(196,148,90,0.03) 61px);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 720px; }
+  .hero-badge {
+    display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--bois-clair); border: 1px solid rgba(196,148,90,0.4);
+    padding: 0.35rem 1rem; border-radius: 2px; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem);
+    color: var(--creme); line-height: 1.1; margin-bottom: 0.3rem; font-weight: 700;
+  }
+  .hero h1 em { color: var(--bois-clair); font-style: italic; }
+  .hero-subtitle { font-size: 0.9rem; color: rgba(247,241,232,0.55); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.2rem; font-weight: 300; }
+  .hero-desc { font-size: 1.05rem; color: rgba(247,241,232,0.75); line-height: 1.8; max-width: 520px; margin: 0 auto 2.5rem; font-weight: 300; }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--bois-clair); color: #2A1A0E; border: none; padding: 0.85rem 2rem; font-family: 'Raleway', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+  .btn-primary:hover { background: var(--creme); }
+  .btn-outline { background: transparent; color: var(--creme); border: 1px solid rgba(247,241,232,0.35); padding: 0.85rem 2rem; font-family: 'Raleway', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+  .btn-outline:hover { border-color: var(--bois-clair); color: var(--bois-clair); }
+  .hero-materials { display: flex; gap: 2rem; justify-content: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(196,148,90,0.15); }
+  .mat-item { text-align: center; }
+  .mat-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+  .mat-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,241,232,0.45); font-weight: 400; }
 
-/* HEADER */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 30px;
-    z-index: 1000;
-}
+  /* SECTION */
+  section { padding: 5rem 2rem; }
+  .section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--text); line-height: 1.2; margin-bottom: 1rem; }
+  .section-desc { color: var(--text-muted); font-size: 1rem; line-height: 1.8; max-width: 520px; font-weight: 300; }
+  .container { max-width: 1100px; margin: 0 auto; }
 
-header h1 {
-    margin: 0;
-    font-size: 20px;
-}
+  /* SAVOIR FAIRE */
+  .savoir { background: var(--creme); }
+  .savoir-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 3.5rem; background: rgba(107,66,38,0.12); border: 1px solid rgba(107,66,38,0.12); }
+  .savoir-card { background: var(--blanc); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: background 0.2s; }
+  .savoir-card:hover { background: var(--creme); }
+  .savoir-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.3s; }
+  .savoir-card:hover::before { height: 100%; }
+  .savoir-number { font-family: 'Playfair Display', serif; font-size: 3rem; color: rgba(107,66,38,0.08); font-weight: 700; line-height: 1; margin-bottom: 1rem; }
+  .savoir-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--bois); margin-bottom: 0.6rem; }
+  .savoir-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+  .savoir-tag { display: inline-block; margin-top: 1rem; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(184,92,40,0.25); padding: 0.2rem 0.6rem; border-radius: 2px; }
 
-nav a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-}
+  /* PRODUITS */
+  .produits-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+  .produit-card { border: 1px solid rgba(107,66,38,0.1); border-radius: 4px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+  .produit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(42,26,14,0.1); }
+  .produit-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; }
+  .produit-img.bois { background: linear-gradient(135deg, #5C3520, #8B5A35, #6B4226); }
+  .produit-img.ardoise { background: linear-gradient(135deg, #2A2D32, #3A3D42, #4A4F55); }
+  .produit-img.metal { background: linear-gradient(135deg, #5A5F66, #8A8F96, #6A7078); }
+  .produit-img.custom { background: linear-gradient(135deg, #3D2612, #6B4226, #B85C28); }
+  .produit-badge { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(253,250,245,0.9); color: var(--bois); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 2px; }
+  .produit-badge.new { background: var(--accent); color: var(--creme); }
+  .produit-body { padding: 1.25rem; background: var(--blanc); }
+  .produit-body h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--text); margin-bottom: 0.3rem; }
+  .produit-body p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem; font-weight: 300; }
+  .produit-footer { display: flex; align-items: center; justify-content: space-between; }
+  .produit-prix { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--bois); font-weight: 700; }
+  .produit-prix small { font-family: 'Raleway', sans-serif; font-size: 0.7rem; color: var(--text-muted); font-weight: 400; display: block; }
+  .btn-panier { background: var(--bois); color: var(--creme); border: none; padding: 0.45rem 0.9rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s; }
+  .btn-panier:hover { background: var(--accent); }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    background: url('image1.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
+  /* PROCESS */
+  .process { background: var(--ardoise); }
+  .process .section-title { color: var(--creme); }
+  .process .section-label { color: var(--bois-clair); }
+  .process .section-desc { color: rgba(247,241,232,0.6); }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 3.5rem; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: rgba(196,148,90,0.25); z-index: 0; }
+  .process-step { text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+  .step-num { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(196,148,90,0.4); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--bois-clair); background: var(--ardoise); }
+  .process-step h3 { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--creme); margin-bottom: 0.5rem; }
+  .process-step p { font-size: 0.8rem; color: rgba(247,241,232,0.5); line-height: 1.6; font-weight: 300; }
 
-.hero h2 {
-    font-size: 48px;
-    max-width: 600px;
-}
+  /* GALERIE */
+  .galerie-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+  .galerie-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 1.5px; background: rgba(107,66,38,0.1); }
+  .gal-item { overflow: hidden; position: relative; cursor: pointer; }
+  .gal-item:first-child { grid-row: span 2; }
+  .gal-img { height: 100%; min-height: 160px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; transition: transform 0.4s; }
+  .gal-item:hover .gal-img { transform: scale(1.05); }
+  .gal-img.g1 { min-height: 340px; background: linear-gradient(160deg, #4A2E18, #7A4A28); }
+  .gal-img.g2 { background: linear-gradient(160deg, #252830, #3A3D42); }
+  .gal-img.g3 { background: linear-gradient(160deg, #6A6F76, #4A5058); }
+  .gal-img.g4 { background: linear-gradient(160deg, #5C3520, #8B5435); }
+  .gal-img.g5 { background: linear-gradient(160deg, #2E3136, #454A52); }
+  .gal-overlay { position: absolute; inset: 0; background: rgba(42,26,14,0); display: flex; align-items: flex-end; padding: 1rem; transition: background 0.3s; }
+  .gal-item:hover .gal-overlay { background: rgba(42,26,14,0.55); }
+  .gal-label { color: var(--creme); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0; transform: translateY(8px); transition: all 0.3s; }
+  .gal-item:hover .gal-label { opacity: 1; transform: translateY(0); }
 
-/* SECTIONS */
-section {
-    padding: 80px 20px;
-    max-width: 1000px;
-    margin: auto;
-}
+  /* TEMOIGNAGES */
+  .temoignages { background: var(--creme); }
+  .temo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .temo-card { background: var(--blanc); border: 1px solid rgba(107,66,38,0.1); padding: 1.75rem; border-radius: 3px; }
+  .temo-stars { color: var(--bois-clair); font-size: 0.75rem; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .temo-text { font-size: 0.88rem; color: var(--text); line-height: 1.75; font-style: italic; font-family: 'Playfair Display', serif; margin-bottom: 1rem; }
+  .temo-author { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
 
-/* GALERIE */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+  /* CONTACT */
+  .contact { background: var(--blanc); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+  .contact-info p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
+  .contact-detail { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1.25rem; }
+  .detail-icon { font-size: 1rem; margin-top: 0.1rem; }
+  .detail-content small { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: block; }
+  .detail-content span { font-size: 0.88rem; color: var(--text); font-weight: 400; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .form-group label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+  .form-group input, .form-group select, .form-group textarea {
+    border: 1px solid rgba(107,66,38,0.2); background: var(--creme); padding: 0.7rem 0.9rem;
+    font-family: 'Raleway', sans-serif; font-size: 0.88rem; color: var(--text);
+    border-radius: 2px; outline: none; transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--bois-clair); background: var(--blanc); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .btn-send { background: var(--bois); color: var(--creme); border: none; padding: 0.9rem 2rem; font-family: 'Raleway', sans-serif; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background 0.2s; align-self: flex-start; }
+  .btn-send:hover { background: var(--accent); }
 
-.card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-}
+  /* FOOTER */
+  footer { background: #1E1410; color: rgba(247,241,232,0.5); padding: 2.5rem 2rem; text-align: center; }
+  footer .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--bois-clair); margin-bottom: 0.5rem; }
+  footer p { font-size: 0.78rem; font-weight: 300; }
+  footer .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin: 1rem 0; list-style: none; }
+  footer .footer-links a { color: rgba(247,241,232,0.4); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  footer .footer-links a:hover { color: var(--bois-clair); }
 
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.card p {
-    padding: 10px;
-}
-
-/* ABOUT */
-.about {
-    text-align: center;
-}
-
-/* CTA */
-.cta {
-    text-align: center;
-}
-
-.btn {
-    background: #222;
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-/* FOOTER */
-footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .savoir-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .process-steps::before { display: none; }
+    .temo-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .galerie-grid { grid-template-columns: 1fr 1fr; }
+    .gal-item:first-child { grid-column: span 2; grid-row: span 1; }
+    .form-row { grid-template-columns: 1fr; }
+  }
 </style>
-
 </head>
 <body>
 
-<header>
-    <h1>Gravures sur bois</h1>
-    <nav>
-        <a href="#gallery">Galerie</a>
-        <a href="#about">À propos</a>
-        <a href="#contact">Commander</a>
-    </nav>
-</header>
+<nav>
+  <div class="nav-logo">L'Atelier de <span>Steffy</span></div>
+  <ul class="nav-links">
+    <li><a href="#savoir">Savoir-faire</a></li>
+    <li><a href="#produits">Boutique</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Commander</button>
+</nav>
 
-<div class="hero">
-    <h2>Des gravures uniques faites à la main</h2>
-</div>
-
-<section id="gallery">
-    <h2>Mes créations</h2>
-    <div class="grid">
-        <div class="card">
-            <img src="image1.jpg">
-            <p>Gravure personnalisée - 25€</p>
-        </div>
-        <div class="card">
-            <img src="image2.jpg">
-            <p>Portrait gravé - 40€</p>
-        </div>
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-content">
+    <div class="hero-badge">✦ Artisan graveur · Fait main · Sur-mesure</div>
+    <h1>L'Atelier de <em>Steffy</em></h1>
+    <p class="hero-subtitle">Bois · Ardoise · Métal</p>
+    <p class="hero-desc">Des créations gravées uniques, réalisées avec passion et savoir-faire artisanal. Chaque pièce raconte une histoire, la vôtre.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('produits').scrollIntoView({behavior:'smooth'})">Découvrir la boutique</button>
+      <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Commande sur-mesure</button>
     </div>
+    <div class="hero-materials">
+      <div class="mat-item"><div class="mat-icon">🪵</div><div class="mat-label">Bois</div></div>
+      <div class="mat-item"><div class="mat-icon">🖤</div><div class="mat-label">Ardoise</div></div>
+      <div class="mat-item"><div class="mat-icon">⚙️</div><div class="mat-label">Métal</div></div>
+    </div>
+  </div>
 </section>
 
-<section id="about" class="about">
-    <h2>Mon histoire</h2>
-    <p>
-        Je crée des gravures sur bois entièrement à la main. 
-        Chaque pièce est unique et réalisée avec passion.
-    </p>
+<!-- SAVOIR FAIRE -->
+<section class="savoir" id="savoir">
+  <div class="container">
+    <div class="section-label">Savoir-faire</div>
+    <h2 class="section-title">Trois matières,<br>un seul art</h2>
+    <p class="section-desc">Chaque matériau offre un rendu unique et une sensibilité propre, travaillé avec les mêmes exigences d'artisan.</p>
+    <div class="savoir-grid">
+      <div class="savoir-card">
+        <div class="savoir-number">01</div>
+        <h3>Gravure sur Bois</h3>
+        <p>Du chêne massif au bambou, en passant par le noyer et le tilleul. La chaleur naturelle du bois apporte une âme unique à chaque pièce gravée.</p>
+        <div class="savoir-tag">Chêne · Noyer · Bambou</div>
+      </div>
+      <div class="savoir-card">
+        <div class="savoir-number">02</div>
+        <h3>Gravure sur Ardoise</h3>
+        <p>La pierre naturelle aux reflets bleutés révèle une finesse de détail incomparable. Élégante et durable, l'ardoise sublime chaque inscription.</p>
+        <div class="savoir-tag">Ardoise naturelle · Pierre</div>
+      </div>
+      <div class="savoir-card">
+        <div class="savoir-number">03</div>
+        <h3>Gravure sur Métal</h3>
+        <p>Acier brossé, aluminium anodisé ou laiton : le métal grave avec une précision remarquable pour des réalisations modernes et durables.</p>
+        <div class="savoir-tag">Acier · Aluminium · Laiton</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="cta">
-    <h2>Commander une gravure</h2>
-    <p>Contactez-moi pour une création personnalisée</p>
-    <a href="mailto:tonemail@example.com" class="btn">Me contacter</a>
+<!-- PRODUITS -->
+<section id="produits">
+  <div class="container">
+    <div class="galerie-header">
+      <div>
+        <div class="section-label">Boutique</div>
+        <h2 class="section-title">Nos créations</h2>
+      </div>
+      <p class="section-desc" style="max-width:340px;font-size:0.88rem;">Pièces en stock et personnalisables, expédiées sous 3 à 5 jours ouvrés.</p>
+    </div>
+    <div class="produits-grid">
+      <div class="produit-card">
+        <div class="produit-img bois">
+          <span style="font-size:2.5rem">🪵</span>
+          <div class="produit-badge">Bestseller</div>
+        </div>
+        <div class="produit-body">
+          <h3>Planche à découper gravée</h3>
+          <p>En chêne massif, gravée de votre prénom, initiales ou dessin personnalisé.</p>
+          <div class="produit-footer">
+            <div class="produit-prix">35,00 €<small>À partir de</small></div>
+            <button class="btn-panier">Ajouter</button>
+          </div>
+        </div>
+      </div>
+      <div class="produit-card">
+        <div class="produit-img ardoise">
+          <span style="font-size:2.5rem">🪨</span>
+          <div class="produit-badge new">Nouveau</div>
+        </div>
+        <div class="produit-body">
+          <h3>Ardoise décorative gravée</h3>
+          <p>Idéale pour une adresse de maison, un menu de restaurant ou une décoration murale.</p>
+          <div class="produit-footer">
+            <div class="produit-prix">28,00 €<small>À partir de</small></div>
+            <button class="btn-panier">Ajouter</button>
+          </div>
+        </div>
+      </div>
+      <div class="produit-card">
+        <div class="produit-img metal">
+          <span style="font-size:2.5rem">⚙️</span>
+          <div class="produit-badge">Populaire</div>
+        </div>
+        <div class="produit-body">
+          <h3>Porte-clés métal gravé</h3>
+          <p>En acier inoxydable brossé. Texte, date ou symbole gravé au laser haute précision.</p>
+          <div class="produit-footer">
+            <div class="produit-prix">12,00 €<small>À partir de</small></div>
+            <button class="btn-panier">Ajouter</button>
+          </div>
+        </div>
+      </div>
+      <div class="produit-card">
+        <div class="produit-img custom">
+          <span style="font-size:2.5rem">✨</span>
+          <div class="produit-badge new">Sur-mesure</div>
+        </div>
+        <div class="produit-body">
+          <h3>Création personnalisée</h3>
+          <p>Votre idée, votre matière, votre design. Contactez-moi pour un devis gratuit.</p>
+          <div class="produit-footer">
+            <div class="produit-prix">Sur devis<small>Devis gratuit</small></div>
+            <button class="btn-panier" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Demander</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-label">Comment ça marche</div>
+    <h2 class="section-title">De l'idée à la création</h2>
+    <p class="section-desc">Un processus simple et transparent, du premier contact à la livraison.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h3>Votre idée</h3>
+        <p>Partagez votre projet, votre matière souhaitée et votre visuel ou texte.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h3>Devis gratuit</h3>
+        <p>Je vous envoie un aperçu et un devis sous 24h. Sans engagement.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h3>Fabrication</h3>
+        <p>Création artisanale réalisée à la main dans mon atelier, avec soin.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h3>Livraison</h3>
+        <p>Expédié soigneusement emballé, partout en France sous 5 à 7 jours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+  <div class="container">
+    <div class="galerie-header">
+      <div>
+        <div class="section-label">Galerie</div>
+        <h2 class="section-title">Réalisations</h2>
+      </div>
+      <button class="btn-outline" style="color:var(--bois);border-color:rgba(107,66,38,0.3)">Voir tout →</button>
+    </div>
+    <div class="galerie-grid">
+      <div class="gal-item">
+        <div class="gal-img g1"><span>🪵</span></div>
+        <div class="gal-overlay"><span class="gal-label">Planche chêne personnalisée</span></div>
+      </div>
+      <div class="gal-item">
+        <div class="gal-img g2"><span>🖤</span></div>
+        <div class="gal-overlay"><span class="gal-label">Ardoise adresse</span></div>
+      </div>
+      <div class="gal-item">
+        <div class="gal-img g3"><span>⚙️</span></div>
+        <div class="gal-overlay"><span class="gal-label">Plaque métal brossé</span></div>
+      </div>
+      <div class="gal-item">
+        <div class="gal-img g4"><span>🎁</span></div>
+        <div class="gal-overlay"><span class="gal-label">Coffret cadeau bois</span></div>
+      </div>
+      <div class="gal-item">
+        <div class="gal-img g5"><span>✍️</span></div>
+        <div class="gal-overlay"><span class="gal-label">Ardoise menu restaurant</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section class="temoignages">
+  <div class="container">
+    <div class="section-label">Avis clients</div>
+    <h2 class="section-title">Ils nous font confiance</h2>
+    <div class="temo-grid">
+      <div class="temo-card">
+        <div class="temo-stars">★★★★★</div>
+        <p class="temo-text">« Une planche magnifique pour notre mariage ! Steffy a gravé nos prénoms et la date avec une précision incroyable. »</p>
+        <div class="temo-author">— Marie &amp; Thomas, Paris</div>
+      </div>
+      <div class="temo-card">
+        <div class="temo-stars">★★★★★</div>
+        <p class="temo-text">« J'ai commandé des ardoises pour mon restaurant, le résultat est bluffant. Délai respecté et qualité artisanale au rendez-vous. »</p>
+        <div class="temo-author">— Julien R., Lyon</div>
+      </div>
+      <div class="temo-card">
+        <div class="temo-stars">★★★★★</div>
+        <p class="temo-text">« Un cadeau unique et personnalisé pour mon père. Il a été touché aux larmes. Je recommande à 100% ! »</p>
+        <div class="temo-author">— Sophie M., Bordeaux</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Parlons de votre projet</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Une idée de cadeau, un projet personnel ou professionnel ? Je suis là pour vous accompagner et créer la pièce qui vous ressemble.</p>
+        <div class="contact-detail">
+          <span class="detail-icon">📍</span>
+          <div class="detail-content">
+            <small>Atelier</small>
+            <span>Dunkerque, Hauts-de-France</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="detail-icon">📩</span>
+          <div class="detail-content">
+            <small>Email</small>
+            <span>contact@latelierdesteffy.fr</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <span class="detail-icon">⏱️</span>
+          <div class="detail-content">
+            <small>Réponse</small>
+            <span>Sous 24h en semaine</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" placeholder="Marie">
+          </div>
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" placeholder="Dupont">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="marie@email.fr">
+        </div>
+        <div class="form-group">
+          <label for="matiere">Matière souhaitée</label>
+          <select id="matiere">
+            <option value="">Choisir une matière...</option>
+            <option>Bois</option>
+            <option>Ardoise</option>
+            <option>Métal</option>
+            <option>Je ne sais pas encore</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Décrivez votre projet</label>
+          <textarea id="message" placeholder="Dites-moi ce que vous souhaitez graver, pour quelle occasion, les dimensions souhaitées..."></textarea>
+        </div>
+        <button class="btn-send" type="button">Envoyer ma demande →</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 - Artisan gravure sur bois</p>
+  <p class="footer-logo">L'Atelier de Steffy</p>
+  <ul class="footer-links">
+    <li><a href="#">Mentions légales</a></li>
+    <li><a href="#">CGV</a></li>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">Facebook</a></li>
+  </ul>
+  <p>© 2025 L'Atelier de Steffy · Artisan graveur · Dunkerque, France</p>
 </footer>
 
 </body>
