@@ -1,68 +1,52 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>L'Atelier de Steffy</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background-image: url('bureau/desert.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-}
-
-header {
-  background: rgba(0,0,0,0.6);
-  padding: 40px;
-}
-
-.card {
-  background: rgba(0,0,0,0.7);
-  width: 300px;
-  margin: 20px auto;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-button {
-  background: #8B4513;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <title>Gravures sur bois - Artisan</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-  <h1>L'Atelier de Steffy</h1>
-  <p>Gravures artisanales sur bois</p>
+    <h1>Gravures sur bois</h1>
+    <p>Créations artisanales faites à la main</p>
 </header>
 
-<div class="card">
-  <h2>Plaque personnalisée</h2>
-  <p>25€</p>
-  <button>Commander</button>
-</div>
+<section class="hero">
+    <h2>Des œuvres uniques gravées avec passion</h2>
+</section>
 
-<div class="card">
-  <h2>Décoration bois</h2>
-  <p>40€</p>
-  <button>Commander</button>
-</div>
+<section class="gallery">
+    <h2>Mes créations</h2>
+    <div class="grid">
+        <div class="item">
+            <img src="image1.jpg" alt="gravure bois">
+            <p>Gravure personnalisée - 25€</p>
+        </div>
+        <div class="item">
+            <img src="image2.jpg" alt="gravure bois">
+            <p>Portrait gravé - 40€</p>
+        </div>
+    </div>
+</section>
 
- <div class="card">
-  <h2>Décoration métal pour animaux</h2>
-  <p>10€</p>
-  <button>Commander</button>
-</div>
- 
+<section class="about">
+    <h2>À propos</h2>
+    <p>
+        Je réalise des gravures sur bois entièrement à la main. 
+        Chaque pièce est unique et réalisée avec soin.
+    </p>
+</section>
+
+<section class="contact">
+    <h2>Commander</h2>
+    <p>Contactez-moi pour une commande personnalisée :</p>
+    <a href="mailto:tonemail@example.com" class="btn">Me contacter</a>
+</section>
+
+<footer>
+    <p>© 2026 - Gravures artisanales</p>
+</footer>
+
 </body>
 </html>
